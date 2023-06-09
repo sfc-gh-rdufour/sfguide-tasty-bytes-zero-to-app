@@ -952,7 +952,7 @@ app.use(cors({
 
 The backend is now ready to be used by the frontend. We can do some final updates to the API to make it easier to manage and making it a little more flexible.
 
-First, we move all configuration in `app.js` to an environment file. This will help us when are deploying it somwhere else:
+First, we move all configuration in `app.js` to an environment file. This will help us when are deploying it somwhere else. Replace the old code for `cors_origin` and all the way to the call for `app.listen(...)` with this:
 ```js
 // 4.5.1 add CORS to the app
 cors_origin = process.env.CORS_ADDRESS ?? 'http://localhost:3001'
@@ -961,11 +961,9 @@ app.use(cors({
 }));
 
 port = process.env.PORT ?? 3000
-environment = process.env.NODE_ENV
 app.listen(port, () => {    
     console.log('Server running on port ' + port);
-    environment = app.get('env')
-    console.log('Environment: ' + environment)
+    console.log('Environment: ' + app.get('env'))
     console.log('CORS origin allowed: ' + cors_origin)
 });
 ```
