@@ -558,6 +558,8 @@ connection.connect((err, conn) => {
         console.log('Connected to Snowflake account ' + options.account);
     }
 });
+
+module.exports = connection;
 ```
 
 Also create a new file  called `.env` in the `backend` directory by copying the `.env.example` file:
