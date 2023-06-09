@@ -503,7 +503,7 @@ We will then secure access to the API using bearer authorization tokens in the f
 
 The starting code for this lab is hosted on GitHub. You can start by cloning the repository into a separate folder if you haven’t done so already as part of the earlier labs.
 ```bash
-git clone https://github.com/Snowflake-Labs/sfguide-tasty-bytes-zero-to-app
+git clone https://github.com/Snowflake-Labs/sfguide-tasty-bytes-zero-to-app zero-to-app
 ```
 Change directory to the `zero-to-app/` directory that is created when you clone the repository. You should now have a directory with subdirectories for the different labs. For this lab we will use the `backend/` directory. Open this directory in an IDE (like VSCode).
 
