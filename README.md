@@ -40,4 +40,4 @@ for Tasty Bytes.
 
 ## Run the Quickstart
 
-Head over to [Snowflake Quickstarts]() and find [Build a data app with Snowflake](https://quickstarts.snowflake.com/guide/build_a_data_app_with_snowflake) to run the quickstart and build the app.
+Head over to [Snowflake Quickstarts](https://quickstarts.snowflake.com/) and find [Build a data app with Snowflake](https://quickstarts.snowflake.com/guide/build_a_data_app_with_snowflake) to run the quickstart and build the app.
