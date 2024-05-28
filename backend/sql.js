@@ -30,7 +30,19 @@ module.exports = {
     // SQL used by route /:franchise/countries/
     // 4.3.3 Update SQL for Top selling countries for franchise
     top_10_countries: `
-    TBD
+    SELECT
+        TOP 10 country,
+        sum(price) AS revenue
+    FROM
+        app.orders
+    WHERE
+        franchise_id = :1
+        AND date(order_ts) >= :2
+        AND date(order_ts) <= :3
+    GROUP BY
+        country
+    ORDER BY
+        sum(price) desc;
     `,
 
     // SQL used by route /:franchise/trucks/:truckbrandname/sales_topitems

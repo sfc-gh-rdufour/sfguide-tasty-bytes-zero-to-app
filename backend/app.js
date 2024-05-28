@@ -13,7 +13,10 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 
 // 4.2.1 Set up the connection to Snowflake
+var connection = require('./connect.js')
+
 // 4.2.4 Definition of sql queries to execute
+var sql_queries = require('./sql')
 
 // Helpers for parsing dates and loggin requests
 var utils = require('./utils')
@@ -46,7 +49,23 @@ app.use(utils.logRequest);
 app.get("/", (req, res, next) => {
     console.log(req.method + ': ' + req.path);
     // 4.2.3 Connect to Snowflake and return query result
+    connection.execute({
+        sqlText: sql_queries.all_franchise_names,
+        complete: (err, stmt, rows) => {
+            if (err) {
+                console.error('Unable to retrieve franchises', err);
+                res.status(500).json({ error: 'Unable to retrieve franchises' });
+            } else {
+                res.status(200).json(rows);
+            }
+        },
+    });
 });
 
 // 4.3.1 Add franchise routes
+const franchise = require('./routes/franchise.js')
+app.use("/franchise", franchise);
+
 // 4.3.6 Add remaining franchise routes
+const franchise_all = require('./routes/franchise_all.js')
+app.use("/franchise", franchise_all);
